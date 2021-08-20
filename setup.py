@@ -34,7 +34,7 @@ setup(name='qtp-job-output-folder',
       version=__version__,
       long_description=long_description,
       license="BSD",
-      description='Qiita Type Plugin: Target Gene',
+      description='Qiita Type Plugin: Job Output Folder',
       author="Qiita development team",
       author_email="qiita.help@gmail.com",
       url='https://github.com/qiita-spots/qtp-job-output-folder',
@@ -44,9 +44,6 @@ setup(name='qtp-job-output-folder',
                                               'tests/test_data/*']},
       scripts=glob('scripts/*'),
       extras_require={'test': ["nose >= 0.10.1", "pep8"]},
-      # note that there is a bug in newer versions of h5py and the newer
-      # version required 3.7; the bug is:
-      # https://github.com/h5py/h5py/issues/992
       install_requires=['click >= 3.3', 'matplotlib',
                         'qiita-files @ https://github.com/'
                         'qiita-spots/qiita-files/archive/master.zip',

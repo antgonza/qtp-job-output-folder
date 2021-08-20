@@ -34,7 +34,7 @@ def _generate_html_summary(jid, folder, out_dir):
     with open(index_fp, 'w') as of:
         of.write(summary)
 
-    # we could add a supports folder for the summary
+    # we could add a support folder for the summary
     viz_fp = None
 
     return index_fp, viz_fp
@@ -65,7 +65,6 @@ def generate_html_summary(qclient, job_id, parameters, out_dir):
     ------
     ValueError
         - If there is any error gathering the information from the server
-        - If the artifact is 'Demultiplexed' but it doesn't have a demux file
     """
     # Step 1: gather file information from qiita using REST api
     artifact_id = parameters['input_data']

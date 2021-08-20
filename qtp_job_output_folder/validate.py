@@ -39,7 +39,7 @@ def validate(qclient, job_id, parameters, out_dir):
     ValueError
         If there is any error gathering the information from the server
     """
-    qclient.update_job_step(job_id, "Step 1: Collecting prep information")
+    qclient.update_job_step(job_id, "Step 1: Validating directory")
 
     files = loads(parameters['files'])
     # [0] we only expect one directory

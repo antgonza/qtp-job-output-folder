@@ -20,7 +20,7 @@ from qtp_job_output_folder import __version__
 from qtp_job_output_folder.summary import generate_html_summary
 
 
-class SummaryTestsNotDemux(PluginTestCase):
+class SummaryTests(PluginTestCase):
     def setUp(self):
         self.out_dir = mkdtemp()
         self.source_dir = join(mkdtemp(), 'test_data')
@@ -68,7 +68,7 @@ class SummaryTestsNotDemux(PluginTestCase):
         with open(html_fp) as html_f:
             html = html_f.read()
         print(html)
-        print(EXP_HTML.format(af=af)))
+        print(EXP_HTML.format(af=af))
         self.assertEqual(html, EXP_HTML.format(af=af))
 
 
