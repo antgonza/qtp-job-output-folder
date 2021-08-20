@@ -67,6 +67,8 @@ class SummaryTestsNotDemux(PluginTestCase):
         self._clean_up_files.append(html_fp)
         with open(html_fp) as html_f:
             html = html_f.read()
+        print(html)
+        print(EXP_HTML.format(af=af)))
         self.assertEqual(html, EXP_HTML.format(af=af))
 
 
