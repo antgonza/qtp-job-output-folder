@@ -31,13 +31,10 @@ def validate(qclient, job_id, parameters, out_dir):
 
     Returns
     -------
-    dict
-        The results of the job
-
-    Raises
-    ------
-    ValueError
-        If there is any error gathering the information from the server
+    bool, list of ArtifactInfo, str
+        Whether the job is successful
+        a list of ArtifactInfo
+        The error message, if not successful
     """
     qclient.update_job_step(job_id, "Step 1: Validating directory")
 

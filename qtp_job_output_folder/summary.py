@@ -60,11 +60,6 @@ def generate_html_summary(qclient, job_id, parameters, out_dir):
         Whether the job is successful
         Ignored
         The error message, if not successful
-
-    Raises
-    ------
-    ValueError
-        - If there is any error gathering the information from the server
     """
     # Step 1: gather file information from qiita using REST api
     artifact_id = parameters['input_data']
