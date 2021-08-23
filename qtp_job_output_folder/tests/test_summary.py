@@ -67,20 +67,26 @@ class SummaryTests(PluginTestCase):
         self._clean_up_files.append(html_fp)
         with open(html_fp) as html_f:
             html = html_f.read()
-        print(html)
-        print(EXP_HTML.format(af=af))
         self.assertEqual(html, EXP_HTML.format(af=af))
 
 
 EXP_HTML = (
-    '<a href="{af}/test_data/file_1" type="file" target="_blank">{af}'
-    '/test_data/file_1</a><br/>\n'
-    '<a href="{af}/test_data/folder_a" type="folder" target="_blank">{af}'
-    '/test_data/folder_a</a><br/>\n'
-    '<a href="{af}/test_data/folder_a/folder_b/folder_c" type="folder" '
-    'target="_blank">{af}/test_data/folder_a/folder_b/folder_c</a><br/>\n'
-    '<a href="{af}/test_data/file_2" type="file" target="_blank">{af}/'
-    'test_data/file_2</a>')
+    '<a href="{af}/file_2" type="file" target="_blank">{af}/file_2</a><br/>\n'
+    '<a href="{af}/test_data" type="folder" target="_blank">{af}/test_data</a>'
+    '<br/>\n'
+    '<a href="{af}/test_data/folder_a/folder_b" type="folder" target="_blank">'
+    '{af}/test_data/folder_a/folder_b</a><br/>\n'
+    '<a href="{af}/test_data/folder_a/folder_b/folder_c/file_c" type="file" '
+    'target="_blank">{af}/test_data/folder_a/folder_b/folder_c/file_c</a>'
+    '<br/>\n'
+    '<a href="{af}/test_data/folder_a/file_a" type="file" target="_blank">'
+    '{af}/test_data/folder_a/file_a</a><br/>\n'
+    '<a href="{af}/file_1" type="file" target="_blank">{af}/file_1</a><br/>\n'
+    '<a href="{af}/folder_a" type="folder" target="_blank">{af}/folder_a</a>'
+    '<br/>\n'
+    '<a href="{af}/folder_a/folder_b/folder_c" type="folder" target="_blank">'
+    '{af}/folder_a/folder_b/folder_c</a>')
+
 
 if __name__ == '__main__':
     main()
