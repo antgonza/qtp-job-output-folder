@@ -12,10 +12,6 @@ from .validate import validate
 from .summary import generate_html_summary
 
 
-class QiitaPluginAdmin(QiitaArtifactType):
-    _plugin_type = "private"
-
-
 __version__ = "2021.08"
 
 
