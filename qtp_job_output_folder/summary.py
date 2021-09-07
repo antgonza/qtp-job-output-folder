@@ -6,7 +6,7 @@
 # The full license is in the file LICENSE, distributed with this software.
 # -----------------------------------------------------------------------------
 
-from os.path import exists, isdir, join
+from os.path import exists, isdir, join, dirname
 from glob import glob
 from json import dumps
 
@@ -26,11 +26,15 @@ def _generate_html_summary(jid, folder, out_dir):
     summary = f'<h3><b>{folder}</b> does not exist.</h3>'
 
     if exists(folder) and isdir(folder):
+        # calculating the "trimming" for the fullpaths, +1 is to remove /
+        tname = len(dirname(folder)) + 1
+        tlink = len(dirname(dirname(folder)))
         summary = '<br/>\n'.join([
-            f'<a href="{f}" type="{ft}" target="_blank">{f}</a>'
+            f'<a href=".{f[tlink:]}" type="{ft}" target="_blank">'
+            f'{f[tname:]}</a>'
             for ft, f in _folder_listing(folder)])
 
-    index_fp = join(out_dir, f"summary_{jid}.html")
+    index_fp = join(out_dir, f"summary.html")
     with open(index_fp, 'w') as of:
         of.write(summary)
 
