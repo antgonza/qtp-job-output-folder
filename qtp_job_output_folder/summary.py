@@ -34,7 +34,7 @@ def _generate_html_summary(jid, folder, out_dir):
             f'{f[tname:]}</a>'
             for ft, f in _folder_listing(folder)])
 
-    index_fp = join(out_dir, f"summary.html")
+    index_fp = join(out_dir, "summary.html")
     with open(index_fp, 'w') as of:
         of.write(summary)
 
