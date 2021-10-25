@@ -80,8 +80,14 @@ class SummaryTests(PluginTestCase):
 
 
 EXP_HTML = (
+    '<a href="./{aid}/test_data/folder_a" type="folder" target="_blank">'
+    'test_data/folder_a</a><br/>\n'
+    '<a href="./{aid}/test_data/folder_a/folder_b/folder_c" type="folder" '
+    'target="_blank">test_data/folder_a/folder_b/folder_c</a><br/>\n'
     '<a href="./{aid}/test_data/file_2" type="file" target="_blank">'
     'test_data/file_2</a><br/>\n'
+    '<a href="./{aid}/test_data/file_1" type="file" target="_blank">'
+    'test_data/file_1</a><br/>\n'
     '<a href="./{aid}/test_data/test_data" type="folder" target="_blank">'
     'test_data/test_data</a><br/>\n'
     '<a href="./{aid}/test_data/test_data/folder_a/folder_b" type="folder" '
@@ -90,13 +96,7 @@ EXP_HTML = (
     'type="file" target="_blank">test_data/test_data/folder_a/folder_b/'
     'folder_c/file_c</a><br/>\n'
     '<a href="./{aid}/test_data/test_data/folder_a/file_a" type="file" '
-    'target="_blank">test_data/test_data/folder_a/file_a</a><br/>\n'
-    '<a href="./{aid}/test_data/file_1" type="file" target="_blank">'
-    'test_data/file_1</a><br/>\n'
-    '<a href="./{aid}/test_data/folder_a" type="folder" target="_blank">'
-    'test_data/folder_a</a><br/>\n'
-    '<a href="./{aid}/test_data/folder_a/folder_b/folder_c" type="folder" '
-    'target="_blank">test_data/folder_a/folder_b/folder_c</a>')
+    'target="_blank">test_data/test_data/folder_a/file_a</a>')
 
 
 if __name__ == '__main__':
