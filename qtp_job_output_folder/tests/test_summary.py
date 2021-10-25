@@ -67,14 +67,6 @@ class SummaryTests(PluginTestCase):
         with open(html_fp) as html_f:
             html = html_f.read()
 
-        print('-----------')
-        print(html.split('\n'))
-        print('-----------')
-        print('-----------')
-        print(EXP_HTML.format(aid=aid).split('\n'))
-        print('-----------')
-        print('-----------')
-
         self.assertCountEqual(
             html.split('\n'), EXP_HTML.format(aid=aid).split('\n'))
 
