@@ -60,7 +60,7 @@ class ValidateTests(PluginTestCase):
         self.assertTrue(obs_success)
         filepaths = [
             (f'{self.source_dir}', 'directory'),
-            (f'{out_dir}/summary_{job_id}.html', 'html_summary')]
+            (f'{out_dir}/summary.html', 'html_summary')]
         exp = [ArtifactInfo(None, 'job-output-folder', filepaths)]
         self.assertEqual(obs_ainfo, exp)
         self.assertEqual(obs_error, "")

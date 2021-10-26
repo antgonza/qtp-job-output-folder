@@ -63,32 +63,32 @@ class SummaryTests(PluginTestCase):
         # cleaning artifact files, to avoid errors
         [self._clean_up_files.extend(f) for f in res['files'].values()]
         html_fp = res['files']['html_summary'][0]
-        af = dirname(html_fp)
         self._clean_up_files.append(html_fp)
         with open(html_fp) as html_f:
             html = html_f.read()
 
-        self.assertEqual(html, EXP_HTML.format(af=af))
+        self.assertCountEqual(
+            html.split('\n'), EXP_HTML.format(aid=aid).split('\n'))
 
 
 EXP_HTML = (
-    '<a href="{af}/test_data/file_2" type="file" target="_blank">{af}/'
-    'test_data/file_2</a><br/>\n'
-    '<a href="{af}/test_data/test_data" type="folder" target="_blank">{af}/'
-    'test_data/test_data</a><br/>\n'
-    '<a href="{af}/test_data/test_data/folder_a/folder_b" type="folder" '
-    'target="_blank">{af}/test_data/test_data/folder_a/folder_b</a><br/>\n'
-    '<a href="{af}/test_data/test_data/folder_a/folder_b/folder_c/file_c" '
-    'type="file" target="_blank">{af}/test_data/test_data/folder_a/folder_b/'
-    'folder_c/file_c</a><br/>\n'
-    '<a href="{af}/test_data/test_data/folder_a/file_a" type="file" '
-    'target="_blank">{af}/test_data/test_data/folder_a/file_a</a><br/>\n'
-    '<a href="{af}/test_data/file_1" type="file" target="_blank">{af}/'
-    'test_data/file_1</a><br/>\n'
-    '<a href="{af}/test_data/folder_a" type="folder" target="_blank">{af}/'
+    '<a href="./{aid}/test_data/folder_a" type="folder" target="_blank">'
     'test_data/folder_a</a><br/>\n'
-    '<a href="{af}/test_data/folder_a/folder_b/folder_c" type="folder" '
-    'target="_blank">{af}/test_data/folder_a/folder_b/folder_c</a>')
+    '<a href="./{aid}/test_data/folder_a/folder_b/folder_c" type="folder" '
+    'target="_blank">test_data/folder_a/folder_b/folder_c</a><br/>\n'
+    '<a href="./{aid}/test_data/file_2" type="file" target="_blank">'
+    'test_data/file_2</a><br/>\n'
+    '<a href="./{aid}/test_data/file_1" type="file" target="_blank">'
+    'test_data/file_1</a><br/>\n'
+    '<a href="./{aid}/test_data/test_data" type="folder" target="_blank">'
+    'test_data/test_data</a><br/>\n'
+    '<a href="./{aid}/test_data/test_data/folder_a/folder_b" type="folder" '
+    'target="_blank">test_data/test_data/folder_a/folder_b</a><br/>\n'
+    '<a href="./{aid}/test_data/test_data/folder_a/folder_b/folder_c/file_c" '
+    'type="file" target="_blank">test_data/test_data/folder_a/folder_b/'
+    'folder_c/file_c</a><br/>\n'
+    '<a href="./{aid}/test_data/test_data/folder_a/file_a" type="file" '
+    'target="_blank">test_data/test_data/folder_a/file_a</a>')
 
 
 if __name__ == '__main__':
