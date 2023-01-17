@@ -68,8 +68,8 @@ class SummaryTests(PluginTestCase):
             html = html_f.read()
 
         self.assertCountEqual(
-            sorted(html.split('\n')),
-            sorted(EXP_HTML.format(aid=aid).split('\n')))
+            sorted(html.replace('<br/>', '').split('\n')),
+            sorted(EXP_HTML.format(aid=aid).replace('<br/>', '').split('\n')))
 
 
 EXP_HTML = (
