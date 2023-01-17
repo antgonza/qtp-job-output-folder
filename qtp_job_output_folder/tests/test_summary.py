@@ -63,8 +63,8 @@ class SummaryTests(PluginTestCase):
         # cleaning artifact files, to avoid errors
         [self._clean_up_files.extend(ff['filepath'])
          for f in res['files'].values() for ff in f]
+        print(self._clean_up_files)
         html_fp = res['files']['html_summary'][0]['filepath']
-        self._clean_up_files.append(html_fp)
         with open(html_fp) as html_f:
             html = html_f.read()
 
