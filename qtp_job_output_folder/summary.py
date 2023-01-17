@@ -66,12 +66,15 @@ def generate_html_summary(qclient, job_id, parameters, out_dir):
         The error message, if not successful
     """
     # Step 1: gather file information from qiita using REST api
+    # we are going to use the "raw" code for retrieving artifact_info vs. the
+    # qiita_client.artifact_and_preparation_files method because this only
+    # expects a single filepath
     artifact_id = parameters['input_data']
     qclient_url = "/qiita_db/artifacts/%s/" % artifact_id
     artifact_info = qclient.get(qclient_url)
 
     # [0] there is only one directory
-    folder = artifact_info['files']['directory'][0]
+    folder = artifact_info['files']['directory'][0]['filepath']
 
     # 2. Generate summary
     index_fp, viz_fp = _generate_html_summary(job_id, folder, out_dir)

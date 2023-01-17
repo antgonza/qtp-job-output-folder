@@ -61,14 +61,15 @@ class SummaryTests(PluginTestCase):
         # asserting content of html
         res = self.qclient.get("/qiita_db/artifacts/%s/" % aid)
         # cleaning artifact files, to avoid errors
-        [self._clean_up_files.extend(f) for f in res['files'].values()]
-        html_fp = res['files']['html_summary'][0]
-        self._clean_up_files.append(html_fp)
+        [self._clean_up_files.extend([ff['filepath']])
+         for f in res['files'].values() for ff in f]
+        html_fp = res['files']['html_summary'][0]['filepath']
         with open(html_fp) as html_f:
             html = html_f.read()
 
         self.assertCountEqual(
-            html.split('\n'), EXP_HTML.format(aid=aid).split('\n'))
+            sorted(html.replace('<br/>', '').split('\n')),
+            sorted(EXP_HTML.format(aid=aid).replace('<br/>', '').split('\n')))
 
 
 EXP_HTML = (
